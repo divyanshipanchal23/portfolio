@@ -16,6 +16,7 @@ export default function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState("")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
@@ -24,12 +25,28 @@ export default function Contact() {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError("")
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Send form data to API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      })
+
+      const data = await response.json()
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong. Please try again.')
+      }
+
+      // Success - clear form and show success message
       setIsSubmitting(false)
       setIsSubmitted(true)
       setFormState({
@@ -42,7 +59,11 @@ export default function Contact() {
       setTimeout(() => {
         setIsSubmitted(false)
       }, 5000)
-    }, 1500)
+    } catch (err) {
+      setIsSubmitting(false)
+      setError(err instanceof Error ? err.message : 'An unexpected error occurred')
+      console.error('Error submitting form:', err)
+    }
   }
 
   return (
@@ -181,6 +202,12 @@ export default function Contact() {
                     className="w-full bg-dark-bg border border-dark-card p-3 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-accent-color/50 transition-all duration-300"
                   ></textarea>
                 </div>
+
+                {error && (
+                  <div className="mb-4 p-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-500">
+                    {error}
+                  </div>
+                )}
 
                 <button
                   type="submit"
