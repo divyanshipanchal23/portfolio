@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="light">
       <head>
         <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
         <link rel="shortcut icon" href="/favicon.svg?v=2" type="image/svg+xml" />
