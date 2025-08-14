@@ -10,9 +10,20 @@ export default function Experience() {
 
   const experiences = [
     {
+      title: "Junior Software Engineer",
+      company: "Comini Learning",
+      location: "Remote",
+      period: "2025 - Present",
+      responsibilities: [
+        "Develop and maintain backend systems for FastGraphs, a financial analytics platform used by investors",
+        "Implement REST APIs, database optimisations, and secure authentication mechanisms to support scalable and high-performance data delivery",
+        "Collaborate with frontend developers to ensure seamless integration between backend services and UI",
+      ],
+    },
+    {
       title: "Data Engineering Intern",
       company: "Stork Rubber Pvt Ltd",
-      location: "Mumbai, India",
+      location: "Gurgaon, India",
       period: "May 2023 - August 2023",
       responsibilities: [
         "Created dashboards with Python, improving report generation by 25%",
@@ -42,15 +53,18 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="inline-block text-3xl md:text-4xl font-bold text-accent-color mb-2 relative pb-4">
-            Experience
-            <span className="absolute bottom-0 left-0 w-full h-1 bg-accent-color transform -translate-y-1"></span>
+          <h2 className="inline-block text-3xl md:text-4xl font-bold text-sage-green mb-2 relative pb-4">
+            My Journey So Far
+            <span className="absolute bottom-0 left-0 w-full h-1 bg-sage-green transform -translate-y-1"></span>
           </h2>
+          <p className="text-text-secondary mt-4 max-w-2xl mx-auto">
+            The places I've worked, the things I've learned, and the impact I've made
+          </p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto relative">
           {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 top-0 h-full w-1 bg-gradient-to-b from-accent-color via-secondary-color to-accent-color transform md:-translate-x-1/2"></div>
+          <div className="absolute left-0 md:left-1/2 top-0 h-full w-1 bg-gradient-to-b from-sage-green via-soft-lavender to-sage-green transform md:-translate-x-1/2"></div>
 
           {experiences.map((exp, index) => (
             <motion.div
@@ -61,35 +75,35 @@ export default function Experience() {
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
               {/* Timeline dot */}
-              <div className="absolute left-0 md:left-1/2 top-0 w-5 h-5 rounded-full bg-accent-color transform -translate-x-1/2 z-10 shadow-lg shadow-accent-color/30"></div>
+              <div className="absolute left-0 md:left-1/2 top-0 w-5 h-5 rounded-full bg-sage-green transform -translate-x-1/2 z-10 shadow-lg shadow-sage-green/30"></div>
 
               <div className={`md:w-5/12 ml-8 md:ml-0 ${index % 2 === 0 ? "md:mr-auto" : "md:ml-auto"}`}>
-                <div className="bg-dark-card rounded-xl p-6 shadow-lg border border-dark-card/80 hover:border-accent-color/30 transition-all duration-300 transform hover:-translate-y-2">
+                <div className="bg-warm-cream-light/80 rounded-xl p-6 shadow-lg border border-sage-green/20 hover:border-sage-green/40 transition-all duration-300 transform hover:-translate-y-2 gentle-glow">
                   <div className="flex items-center mb-3">
-                    <Briefcase className="w-5 h-5 text-accent-color mr-2" />
-                    <h3 className="text-xl font-semibold text-accent-color">{exp.title}</h3>
+                    <Briefcase className="w-5 h-5 text-sage-green mr-2" />
+                    <h3 className="text-xl font-semibold text-sage-green">{exp.title}</h3>
                   </div>
 
-                  <h4 className="text-lg mb-2">{exp.company}</h4>
+                  <h4 className="text-lg mb-2 text-text-primary">{exp.company}</h4>
 
-                  <div className="flex items-center text-sm text-text-primary/70 mb-2">
-                    <MapPin className="w-4 h-4 mr-1" />
+                  <div className="flex items-center text-sm text-text-secondary mb-2">
+                    <MapPin className="w-4 h-4 mr-1 text-sage-green" />
                     <span>{exp.location}</span>
                   </div>
 
-                  <div className="flex items-center text-sm text-text-primary/70 mb-4">
-                    <Calendar className="w-4 h-4 mr-1" />
+                  <div className="flex items-center text-sm text-text-secondary mb-4">
+                    <Calendar className="w-4 h-4 mr-1 text-sage-green" />
                     <span>{exp.period}</span>
                   </div>
 
-                  <ul className="space-y-2">
+                  <div className="space-y-3">
                     {exp.responsibilities.map((resp, i) => (
-                      <li key={i} className="flex items-start">
-                        <span className="inline-block w-2 h-2 rounded-full bg-accent-color mt-2 mr-2"></span>
-                        <span>{resp}</span>
-                      </li>
+                      <div key={i} className="flex items-start">
+                        <span className="inline-block w-2 h-2 rounded-full bg-sage-green mt-2 mr-3 flex-shrink-0"></span>
+                        <span className="text-text-secondary leading-relaxed">{resp}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </div>
             </motion.div>

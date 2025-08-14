@@ -2,137 +2,97 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { FileText, Github, Linkedin } from "lucide-react"
 
 export default function About() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
   return (
-    <section id="about" ref={ref} className="py-20 px-4">
-      <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <h2 className="inline-block text-3xl md:text-4xl font-bold text-accent-color mb-12 relative pb-4">
-            About Me
-            <span className="absolute bottom-0 left-0 w-full h-1 bg-accent-color transform -translate-y-1"></span>
-          </h2>
+    <div ref={ref} className="py-8">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        transition={{ duration: 0.6 }}
+        className="text-center"
+      >
+        <h2 className="inline-block text-3xl md:text-4xl font-bold text-sage-green mb-12 relative pb-4">
+          Who I Am
+          <span className="absolute bottom-0 left-0 w-full h-1 bg-sage-green transform -translate-y-1"></span>
+        </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div
-              className="bg-dark-card rounded-xl p-8 shadow-lg border border-dark-card/80 md:col-span-2"
+              className="bg-warm-cream-light/80 rounded-xl p-8 shadow-lg border border-sage-green/20 md:col-span-2 gentle-glow"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <div className="md:flex gap-6 items-center mb-6">
-                <div className="mb-6 md:mb-0 flex justify-center md:block">
-                  <img 
-                    src="/me.jpeg" 
-                    alt="Divyanshi Panchal" 
-                    className="w-32 h-32 object-cover rounded-full border-2 border-accent-color shadow-md"
-                  />
-                </div>
-                <div>
-                  <p className="text-lg leading-relaxed text-left">
-                    Motivated and detail-oriented B.Tech Computer Science student specializing in AI and Data Science.
-                    Extensive experience in AI-driven projects, including creating dashboards, training machine learning
-                    models, and streamlining data pipelines.
-                  </p>
-                </div>
+              <div className="space-y-6 text-left">
+                                          <p className="text-lg leading-relaxed text-text-primary">
+                            I enjoy a slower, more thoughtful pace in life. I work with FastGraphs, where I maintain and build features that keep things running smoothly.
+                          </p>
+                
+                                          <p className="text-lg leading-relaxed text-text-secondary">
+                            I'm drawn to warm lighting, soft colors, and the comfort of small rituals, like lighting a scented candle, journaling, or making coffee in my Hogwarts mug. I'm more introverted, but I value deep connections, shared laughter, and time spent with friends and family.
+                          </p>
+                
+                                          <p className="text-lg leading-relaxed text-text-secondary">
+                            Away from my screen, I like doing the wordle, reading books, journaling, or spending time with my cat. I gravitate toward music, podcasts, and the occasional online game, and I find comfort in spaces that feel lived in and calm.
+                          </p>
+                
+                                          <p className="text-lg leading-relaxed text-text-secondary">
+                            To me, relationships should be clear, dependable, and built to last which is also how I like my code.
+                          </p>
               </div>
 
-              <p className="text-lg leading-relaxed mb-6 text-left">
-                I'm passionate about leveraging technology to solve real-world problems and create impactful solutions.
-                My goal is to contribute to innovative projects that push the boundaries of what's possible with AI and
-                data science.
-              </p>
-
-              <div className="mt-8 flex flex-wrap justify-start gap-4">
-                <span className="px-4 py-2 bg-dark-bg rounded-full text-accent-color border border-accent-color/30">
-                  AI Enthusiast
+              <div className="mt-8 flex flex-wrap justify-start gap-3">
+                <span className="px-4 py-2 bg-sage-green/10 rounded-full text-sage-green border border-sage-green/30 font-medium">
+                  Software Engineer
                 </span>
-                <span className="px-4 py-2 bg-dark-bg rounded-full text-accent-color border border-accent-color/30">
-                  Data Scientist
+                <span className="px-4 py-2 bg-sage-green/10 rounded-full text-sage-green border border-sage-green/30 font-medium">
+                  Wordle Enthusiast
                 </span>
-                <span className="px-4 py-2 bg-dark-bg rounded-full text-accent-color border border-accent-color/30">
-                  Full Stack Developer
-                </span>
-                <span className="px-4 py-2 bg-dark-bg rounded-full text-accent-color border border-accent-color/30">
-                  Problem Solver
+                <span className="px-4 py-2 bg-sage-green/10 rounded-full text-sage-green border border-sage-green/30 font-medium">
+                  Playlist Virtuoso
                 </span>
               </div>
             </motion.div>
 
             <motion.div
-              className="bg-dark-card rounded-xl p-8 shadow-lg border border-dark-card/80"
+              className="bg-warm-cream-light/80 rounded-xl p-8 shadow-lg border border-sage-green/20 gentle-glow"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <h3 className="text-xl font-semibold text-accent-color mb-6 text-left">Professional Details</h3>
+              <h3 className="text-xl font-semibold text-sage-green mb-6 text-left">A Little More About Me</h3>
 
-              <div className="space-y-4 text-left">
-                <div>
-                  <h4 className="text-sm text-text-primary/60 mb-1">Location</h4>
-                  <p>Gurgaon, India</p>
+              <div className="space-y-5 text-left">
+                <div className="p-4 bg-sage-green/5 rounded-lg border-l-4 border-sage-green/30">
+                  <h4 className="text-sm font-medium text-sage-green mb-2">Home Base</h4>
+                  <p className="text-text-secondary">Gurgaon, India</p>
                 </div>
 
-                <div>
-                  <h4 className="text-sm text-text-primary/60 mb-1">Education</h4>
-                  <p>B.Tech in Computer Science</p>
+                <div className="p-4 bg-sage-green/5 rounded-lg border-l-4 border-sage-green/30">
+                  <h4 className="text-sm font-medium text-sage-green mb-2">Learning Journey</h4>
+                  <p className="text-text-secondary">B.Tech in Computer Science</p>
+                  <p className="text-xs text-text-secondary/70 mt-1">Specialized in AI & Data Science</p>
                 </div>
 
-                <div>
-                  <h4 className="text-sm text-text-primary/60 mb-1">Specialization</h4>
-                  <p>AI and Data Science</p>
+                <div className="p-4 bg-sage-green/5 rounded-lg border-l-4 border-sage-green/30">
+                  <h4 className="text-sm font-medium text-sage-green mb-2">Languages</h4>
+                  <p className="text-text-secondary">English, Hindi, a little bit of German</p>
+                  <p className="text-xs text-text-secondary/70 mt-1">and fluent cat</p>
                 </div>
 
-                <div>
-                  <h4 className="text-sm text-text-primary/60 mb-1">Languages</h4>
-                  <p>English, Hindi</p>
+                <div className="p-4 bg-sage-green/5 rounded-lg border-l-4 border-sage-green/30">
+                  <h4 className="text-sm font-medium text-sage-green mb-2">Currently</h4>
+                  <p className="text-text-secondary">Maintaining the codebase @ FastGraphs</p>
+                  <p className="text-xs text-text-secondary/70 mt-1">remote work</p>
                 </div>
-              </div>
-
-              <div className="mt-8 flex justify-between">
-                <a
-                  href="https://github.com/divyanshipanchal23"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-2 text-text-primary hover:text-accent-color transition-colors duration-300"
-                >
-                  <Github size={20} />
-                  <span>GitHub</span>
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/divyanshipanchal/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-2 text-text-primary hover:text-accent-color transition-colors duration-300"
-                >
-                  <Linkedin size={20} />
-                  <span>LinkedIn</span>
-                </a>
-
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-2 text-text-primary hover:text-accent-color transition-colors duration-300"
-                >
-                  <FileText size={20} />
-                  <span>Resume</span>
-                </a>
               </div>
             </motion.div>
           </div>
-        </motion.div>
-      </div>
-    </section>
+      </motion.div>
+    </div>
   )
 }

@@ -111,21 +111,6 @@ export default function Contact() {
 
               <div className="flex items-start">
                 <div className="bg-dark-bg p-3 rounded-full mr-4">
-                  <Phone className="w-6 h-6 text-accent-color" />
-                </div>
-                <div>
-                  <h4 className="font-medium mb-1">Phone</h4>
-                  <a
-                    href="tel:+917303557381"
-                    className="text-text-primary/80 hover:text-accent-color transition-colors"
-                  >
-                    +91 7303557381
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="bg-dark-bg p-3 rounded-full mr-4">
                   <MapPin className="w-6 h-6 text-accent-color" />
                 </div>
                 <div>

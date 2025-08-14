@@ -10,44 +10,43 @@ export default function Skills() {
 
   const skillCategories = [
     {
-      title: "Languages",
-      icon: <Code className="w-8 h-8 text-accent-color" />,
+      title: "Languages I Love",
+      icon: <Code className="w-8 h-8 text-sage-green" />,
       skills: [
-        { name: "Python", proficiency: 90 },
-        { name: "C", proficiency: 75 },
-        { name: "C++", proficiency: 80 },
-        { name: "JavaScript", proficiency: 85 },
-        { name: "TypeScript", proficiency: 80 },
-        { name: "R", proficiency: 70 },
+        "Python",
+        "JavaScript",
+        "TypeScript",
+        "C++",
+        "C",
+        "R",
       ],
     },
     {
-      title: "Frameworks",
-      icon: <Layers className="w-8 h-8 text-accent-color" />,
+      title: "Frameworks & Libraries",
+      icon: <Layers className="w-8 h-8 text-sage-green" />,
       skills: [
-        { name: "TensorFlow", proficiency: 85 },
-        { name: "React.js", proficiency: 80 },
-        { name: "Node.js", proficiency: 75 },
-        { name: "Django", proficiency: 70 },
+        "React.js",
+        "Node.js",
+        "TensorFlow",
+        "Django",
       ],
     },
     {
-      title: "Tools",
-      icon: <Tool className="w-8 h-8 text-accent-color" />,
+      title: "Tools & Platforms",
+      icon: <Tool className="w-8 h-8 text-sage-green" />,
       skills: [
-        { name: "Plotly", proficiency: 90 },
-        { name: "Matplotlib", proficiency: 85 },
-        { name: "Dash", proficiency: 80 },
-        { name: "IBM Cloud", proficiency: 75 },
-        { name: "TensorFlow", proficiency: 85 },
+        "Plotly",
+        "Matplotlib",
+        "Dash",
+        "IBM Cloud",
       ],
     },
     {
-      title: "Databases",
-      icon: <Database className="w-8 h-8 text-accent-color" />,
+      title: "Data Storage",
+      icon: <Database className="w-8 h-8 text-sage-green" />,
       skills: [
-        { name: "MongoDB", proficiency: 80 },
-        { name: "MySQL", proficiency: 85 },
+        "MongoDB",
+        "MySQL",
       ],
     },
   ]
@@ -68,18 +67,21 @@ export default function Skills() {
   }
 
   return (
-    <section id="skills" ref={ref} className="py-20 px-4 bg-dark-bg/50">
-      <div className="container mx-auto">
+    <div ref={ref} className="py-8">
+      <div className="w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="inline-block text-3xl md:text-4xl font-bold text-accent-color mb-2 relative pb-4">
-            Skills
-            <span className="absolute bottom-0 left-0 w-full h-1 bg-accent-color transform -translate-y-1"></span>
+          <h2 className="inline-block text-3xl md:text-4xl font-bold text-sage-green mb-2 relative pb-4">
+            The Tech Stuff
+            <span className="absolute bottom-0 left-0 w-full h-1 bg-sage-green transform -translate-y-1"></span>
           </h2>
+          <p className="text-text-secondary mt-4 max-w-2xl mx-auto">
+            Languages, frameworks, and tools I know how to use.
+          </p>
         </motion.div>
 
         <motion.div
@@ -93,26 +95,17 @@ export default function Skills() {
               key={category.title}
               variants={item}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-dark-card rounded-xl p-6 shadow-lg border border-dark-card/80 hover:shadow-accent-color/10 hover:border-accent-color/30 transition-all duration-300 transform hover:-translate-y-2"
+              className="bg-warm-cream-light/80 rounded-xl p-6 shadow-lg border border-sage-green/20 hover:shadow-sage-green/20 hover:border-sage-green/40 transition-all duration-300 transform hover:-translate-y-2 gentle-glow"
             >
               <div className="flex flex-col items-center">
-                <div className="mb-4 p-3 bg-dark-bg rounded-full">{category.icon}</div>
-                <h3 className="text-xl font-semibold text-accent-color mb-6">{category.title}</h3>
-                <div className="space-y-4 w-full">
-                  {category.skills.map((skill) => (
-                    <div key={skill.name} className="w-full">
-                      <div className="flex justify-between mb-1">
-                        <span>{skill.name}</span>
-                        <span className="text-accent-color">{skill.proficiency}%</span>
-                      </div>
-                      <div className="w-full bg-dark-bg rounded-full h-2.5">
-                        <motion.div
-                          className="bg-gradient-to-r from-accent-color to-secondary-color h-2.5 rounded-full"
-                          initial={{ width: 0 }}
-                          animate={isInView ? { width: `${skill.proficiency}%` } : { width: 0 }}
-                          transition={{ duration: 1, delay: 0.5 }}
-                        ></motion.div>
-                      </div>
+                <div className="mb-4 p-3 bg-sage-green/10 rounded-full">{category.icon}</div>
+                <h3 className="text-xl font-semibold text-sage-green mb-6">{category.title}</h3>
+                <div className="space-y-3 w-full">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div key={skill} className="text-center">
+                      <span className="inline-block px-3 py-2 bg-sage-green/5 text-text-primary rounded-lg border border-sage-green/10 hover:bg-sage-green/10 transition-colors duration-200">
+                        {skill}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -121,6 +114,6 @@ export default function Skills() {
           ))}
         </motion.div>
       </div>
-    </section>
+    </div>
   )
 }

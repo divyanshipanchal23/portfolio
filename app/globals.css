@@ -3,12 +3,35 @@
 @tailwind utilities;
 
 :root {
-  --dark-bg: #0f172a;
-  --dark-card: #1e293b;
-  --text-primary: #f1f5f9;
-  --accent-color: #06b6d4;
-  --hover-color: #22d3ee;
-  --secondary-color: #8b5cf6;
+  --dark-bg: #f5f1eb;
+  --dark-card: #fefcf8;
+  --text-primary: #3a4a3d;
+  --accent-color: #9caf88;
+  --hover-color: #a8b89a;
+  --secondary-color: #e6e1f0;
+  --sage-green: #9caf88;
+  --sage-green-light: #a8b89a;
+  --warm-cream: #f5f1eb;
+  --warm-cream-light: #fefcf8;
+  --soft-lavender: #e6e1f0;
+  --candlelight-amber: #f4e4bc;
+  --text-secondary: #6b7c6e;
+}
+
+.dark {
+  --dark-bg: #1a1a1a;
+  --dark-card: #2a2a2a;
+  --text-primary: #e8e8e8;
+  --accent-color: #9caf88;
+  --hover-color: #a8b89a;
+  --secondary-color: #3a3a3a;
+  --sage-green: #9caf88;
+  --sage-green-light: #a8b89a;
+  --warm-cream: #1a1a1a;
+  --warm-cream-light: #2a2a2a;
+  --soft-lavender: #3a3a3a;
+  --candlelight-amber: #4a4a4a;
+  --text-secondary: #b0b0b0;
 }
 
 html {
@@ -23,10 +46,13 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  background-color: var(--dark-bg);
+  font-family: "Inter", "Roboto", sans-serif;
+  background-color: var(--warm-cream);
   color: var(--text-primary);
   line-height: 1.6;
+  background-image: 
+    radial-gradient(circle at 20% 50%, var(--candlelight-amber) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, var(--soft-lavender) 0%, transparent 50%);
 }
 
 @keyframes float {
@@ -57,4 +83,28 @@ body {
 
 .animate-pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes gentle-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(156, 175, 136, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(156, 175, 136, 0.5);
+  }
+}
+
+.gentle-glow {
+  animation: gentle-glow 4s ease-in-out infinite;
+}
+
+@keyframes candle-flicker {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  25% { opacity: 0.95; transform: scale(1.02); }
+  50% { opacity: 0.85; transform: scale(0.98); }
+  75% { opacity: 0.92; transform: scale(1.01); }
+}
+
+.candle-flicker {
+  animation: candle-flicker 3s ease-in-out infinite;
 }

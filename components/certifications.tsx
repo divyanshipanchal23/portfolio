@@ -75,7 +75,7 @@ export default function Certifications() {
             <span className="absolute bottom-0 left-0 w-full h-1 bg-accent-color transform -translate-y-1"></span>
           </h2>
           <p className="mt-6 text-text-primary/80 max-w-2xl mx-auto">
-            Professional certifications that validate my expertise in various technical domains, from AI and machine learning to cloud development and data science.
+            Some certifications I've earned along the way.
           </p>
         </motion.div>
 

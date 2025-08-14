@@ -3,19 +3,16 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { ChevronUp } from "lucide-react"
-import Navbar from "@/components/navbar"
 import Hero from "@/components/hero"
-import About from "@/components/about"
-import Skills from "@/components/skills"
-import Experience from "@/components/experience"
-import Projects from "@/components/projects"
-import Certifications from "@/components/certifications"
-import Availability from "@/components/availability"
-import Contact from "@/components/contact"
+import TabNavigation from "@/components/tab-navigation"
+import TabContent from "@/components/tab-content"
 import Footer from "@/components/footer"
+import { ThemeToggle } from "@/components/theme-provider"
+import MouseTracker from "@/components/mouse-tracker"
 
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [activeTab, setActiveTab] = useState("about")
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,15 +32,21 @@ export default function Home() {
 
   return (
     <main className="bg-dark-bg text-text-primary min-h-screen">
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Certifications />
-      <Availability />
-      <Contact />
+      <MouseTracker />
+      <ThemeToggle />
+      <Hero onTabChange={setActiveTab} />
+      
+      {/* Tab Navigation */}
+      <div id="tabs" className="py-12 px-4">
+        <div className="container mx-auto">
+          <TabNavigation 
+            activeTab={activeTab} 
+            onTabChange={setActiveTab} 
+          />
+          <TabContent activeTab={activeTab} />
+        </div>
+      </div>
+      
       <Footer />
 
       {showScrollTop && (
