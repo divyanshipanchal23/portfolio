@@ -4,7 +4,7 @@ This is the personal portfolio website of Divyanshi Panchal, a Computer Science 
 
 ## Live Website
 
-View the live portfolio at: [https://divyanshi-portfolio.vercel.app/](https://divyanshi-portfolio.vercel.app/)
+View the live portfolio at: [https://divyanshi-panchal.vercel.app/](https://divyanshi-panchal.vercel.app/)
 
 ## Features
 
